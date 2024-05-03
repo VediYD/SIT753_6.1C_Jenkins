@@ -18,6 +18,8 @@ RUN /home/jenkins/venv/bin/pip install pytest
 
 RUN /home/jenkins/venv/bin/pip install pylint
 
+RUN /home/jenkins/venv/bin/pip install bandit
+
 RUN apt-get update && apt-get install -y lsb-release
 
 RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \

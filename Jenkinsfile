@@ -34,6 +34,17 @@ pipeline {
                 '''
             }
         }
+
+        stage('Security Check') {
+            steps {
+                echo "Using Bandit for analyzing the package."
+
+                // Build project using PyInstaller
+                sh '''
+                    bandit main.py
+                '''
+            }
+        }
     }
 }
 
