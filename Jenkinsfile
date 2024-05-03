@@ -22,6 +22,15 @@ pipeline {
                     pytest test_main.py
                 '''
             }
+            post {
+                always {
+                    emailext(
+                        subject: "Test Stage ${BUILD_STATUS}: ${currentBuild.fullDisplayName}",
+                        body: "Test stage ${BUILD_STATUS.toLowerCase()} for ${currentBuild.fullDisplayName}",
+                        to: 'vedi.yash@gmail.com'
+                    )
+                }
+            }
         }
 
         stage('Analysis') {
