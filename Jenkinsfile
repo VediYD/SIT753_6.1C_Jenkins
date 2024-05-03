@@ -28,7 +28,7 @@ pipeline {
                     emailext(
                         subject: "Test Stage ${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
                         body: "Test stage ${currentBuild.currentResult.toLowerCase()} for ${currentBuild.fullDisplayName}",
-                        to: 'recipient@example.com' // Enter the recipient email address
+                        to: 'vedi.yash@gmail.com'
                     )
                 }
             }
