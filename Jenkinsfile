@@ -26,6 +26,7 @@ pipeline {
                 always {
                     // Send email notification with build status
                     emailext(
+                        attachLog : true,
                         subject: "Test Stage ${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
                         body: "Test stage ${currentBuild.currentResult.toLowerCase()} for ${currentBuild.fullDisplayName}",
                         to: 'vedi.yash@gmail.com'
