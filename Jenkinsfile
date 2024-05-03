@@ -24,10 +24,11 @@ pipeline {
             }
             post {
                 always {
+                    // Send email notification with build status
                     emailext(
-                        subject: "Test Stage ${BUILD_STATUS}: ${currentBuild.fullDisplayName}",
-                        body: "Test stage ${BUILD_STATUS.toLowerCase()} for ${currentBuild.fullDisplayName}",
-                        to: 'vedi.yash@gmail.com'
+                        subject: "Test Stage ${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+                        body: "Test stage ${currentBuild.currentResult.toLowerCase()} for ${currentBuild.fullDisplayName}",
+                        to: 'recipient@example.com' // Enter the recipient email address
                     )
                 }
             }
