@@ -23,6 +23,17 @@ pipeline {
                 '''
             }
         }
+
+        stage('Analysis') {
+            steps {
+                echo "Using PyLint for analyzing the package."
+
+                // Build project using PyInstaller
+                sh '''
+                    pylint main.py
+                '''
+            }
+        }
     }
 }
 
