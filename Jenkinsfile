@@ -1,7 +1,8 @@
 pipeline {
     agent any
 
-    stages { 
+    stages {
+
         stage('Build') {
             steps {
                 echo "Using PyInstaller for building the python package."
@@ -11,9 +12,7 @@ pipeline {
                 '''
             }
         }
-    }
 
-    stages {
         stage('Test') {
             steps {
                 echo "Using Pytest for testing the package."
