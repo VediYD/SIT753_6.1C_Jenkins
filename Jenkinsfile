@@ -20,6 +20,7 @@ pipeline {
                 // Build project using PyInstaller
                 sh '''
                     pytest test_main.py
+                    pytest doesnt_exists.py
                 '''
             }
             post {
