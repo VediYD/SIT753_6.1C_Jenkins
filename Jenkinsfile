@@ -55,6 +55,17 @@ pipeline {
                     bandit main.py
                 '''
             }
+            post {
+                always {
+                    // Send email notification with build status
+                    emailext(
+                        attachLog : true,
+                        subject: "Security Stage ${currentBuild.currentResult}: ${currentBuild.fullDisplayName}",
+                        body: "Security stage ${currentBuild.currentResult.toLowerCase()} for ${currentBuild.fullDisplayName}",
+                        to: 'vedi.yash@gmail.com'
+                    )
+                }
+            }
         }
 
         stage('Deploy - Staging') {
